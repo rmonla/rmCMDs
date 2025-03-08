@@ -1,10 +1,10 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | readme.md | v250308-1553
+# rmCMDs | readme.md | v250308-1620
 -->
 # rmCMDs
 
-[![rmCMDs | readme.md | v250308-1553](https://img.shields.io/badge/rmCMDs%20%7C%20readme.md%20-v250308%201553-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
+[![rmCMDs | readme.md | v250308-1620](https://img.shields.io/badge/rmCMDs%20%7C%20readme.md%20-v250308%201620-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Descripción
 Este repositorio recopila comandos de Linux y Windows que uso periódicamente. También busca ser un recurso útil para programadores, administradores de IT y público en general.
@@ -13,74 +13,10 @@ Este repositorio recopila comandos de Linux y Windows que uso periódicamente. T
 Aquí se encuentran diversos comandos y scripts organizados por prefijo según su plataforma y lenguaje.
 
 ### Índice de Ejemplos
-- [1. `lnx_runScriptFromURL`](#1-lnx_runscriptfromurl)
-- [2. `win_ver_ip`](#2-win_ver_ip)
-- [3. `php_conexion_db`](#3-php_conexion_db)
-
-### Ejemplos Iniciales
-
-#### 1. `lnx_runScriptFromURL`
-- **Código**:
-  ```bash
-  bash -c 'read -p "Ingrese la URL del script a ejecutar: " cmdURL && \
-  { script_file=$(mktemp) && curl -fsSL "$cmdURL" -o "$script_file" && sh "$script_file" && rm -f "$script_file"; } \
-  || { echo "Error: Falló la descarga o ejecución del script"; exit 1; }'
-  ```
-- **Sinopsis**: Solicita al usuario una URL de un script, lo descarga en un archivo temporal, lo ejecuta y luego elimina el archivo temporal. Si falla la descarga o la ejecución, muestra un mensaje de error y detiene el proceso.
-- **Uso**: Ideal para ejecutar scripts remotos de manera temporal y segura, sin dejar rastros en el sistema.
-- **Dependencias**: Requiere `curl` instalado en el sistema.
-- **Manejo de errores**: Si falla la descarga, la ejecución o la eliminación del archivo temporal, se muestra un mensaje de error y se detiene la ejecución con `exit 1`.
-- **Ejemplo**:
-  ```bash
-  bash -c 'read -p "Ingrese la URL del script a ejecutar: " cmdURL && \
-  { script_file=$(mktemp) && curl -fsSL "$cmdURL" -o "$script_file" && sh "$script_file" && rm -f "$script_file"; } \
-  || { echo "Error: Falló la descarga o ejecución del script"; exit 1; }'
-  ```
-  - **Entrada del usuario**:
-    ```
-    Ingrese la URL del script a ejecutar: https://ejemplo.com/ruta/al/script.sh
-    ```
-  - **Salida esperada**:
-    - Si todo funciona correctamente, el script se ejecuta y no se muestra ningún error.
-    - Si falla, se muestra: `Error: Falló la descarga o ejecución del script`.
-
-- **Notas**:
-  - El script se descarga en un archivo temporal creado con `mktemp`, lo que garantiza que no se sobrescriban archivos existentes.
-  - El archivo temporal se elimina automáticamente después de la ejecución, lo que mejora la seguridad y evita dejar rastros en el sistema.
-
-- [🔼 Volver al índice](#índice-de-ejemplos)
-
----
-
-#### 2. `win_ver_ip`
-- **Código**:
-  ```batch
-  ipconfig
-  ```
-- **Sinopsis**: Muestra la configuración de red actual en Windows, incluyendo la dirección IP, máscara de subred y puerta de enlace predeterminada.
-- [🔼 Volver al índice](#índice-de-ejemplos)
-
-#### 3. `php_conexion_db`
-- **Código**:
-  ```php
-  <?php
-  $servername = "localhost";
-  $username = "user";
-  $password = "pass";
-  $dbname = "database";
-
-  // Crear conexión
-  $conn = new mysqli($servername, $username, $password, $dbname);
-
-  // Verificar conexión
-  if ($conn->connect_error) {
-      die("Conexión fallida: " . $conn->connect_error);
-  }
-  echo "Conexión exitosa";
-  ?>
-  ```
-- **Sinopsis**: Ejemplo básico de conexión a una base de datos MySQL utilizando PHP.
-- [🔼 Volver al índice](#índice-de-ejemplos)
+1. [Ejecutar script desde URL (`lnx_runScriptFromURL`)](./lnx_runScriptFromURL.md)
+2. [Eliminar paquete y residuos (`lnx_removePackage`)](./lnx_removePackage.md)
+3. [Ver configuración de red en Windows (`win_ver_ip`)](./win_ver_ip.md)
+4. [Conexión a base de datos en PHP (`php_conexion_db`)](./php_conexion_db.md)
 
 ## Estructura del Repositorio
 No hay una estructura de carpetas definida inicialmente, pero los scripts se identifican mediante prefijos en sus nombres:
@@ -119,3 +55,4 @@ Este proyecto está licenciado bajo la **MIT License**. Puedes ver más detalles
 
 ## Archivo `.gitignore`
 Se ha incluido un archivo `.gitignore` básico para excluir archivos innecesarios, como archivos temporales o de configuración local.
+```
