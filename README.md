@@ -1,10 +1,10 @@
 <!--  
-# Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | readme.md | v250308-1624
+# Ricardo Monla (https://github.com/rmonla/rmCMDs)
+#  | readme.md | v250308-1707
 -->
 # rmCMDs
 
-[![rmCMDs | readme.md | v250308-1620](https://img.shields.io/badge/rmCMDs%20%7C%20readme.md%20-v250308%201620-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
+[![rmCMDs | readme.md | v250308-1707](https://img.shields.io/badge/rmCMDs%20%7C%20readme.md%20-v250308%201707-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Descripción
 Este repositorio recopila comandos de Linux y Windows que uso periódicamente. También busca ser un recurso útil para programadores, administradores de IT y público en general.
@@ -12,10 +12,10 @@ Este repositorio recopila comandos de Linux y Windows que uso periódicamente. T
 ## Índice de Comandos y Scripts
 Aquí se encuentran diversos comandos y scripts organizados por prefijo según su plataforma y lenguaje.
 
-1. [Ejecutar script desde URL (`lnx_runScriptFromURL`)](./lnx_runScriptFromURL.md)
-2. [Eliminar paquete y residuos (`lnx_removePackage`)](./lnx_removePackage.md)
-3. [Ver configuración de red en Windows (`win_ver_ip`)](./win_ver_ip.md)
-4. [Conexión a base de datos en PHP (`php_conexion_db`)](./php_conexion_db.md)
+1. [Ejecutar script desde URL (`lnx/rmRunScriptFromURL.md`)](lnx/rmRunScriptFromURL.md)
+2. [Eliminar paquete y residuos (`lnx/rmRemovePackage.md`)](lnx/rmRemovePackage.md)
+3. [Ver configuración de red en Windows (`php/rmCNXdb.md`)](php/rmCNXdb.md)
+4. [Conexión a base de datos en PHP (`win/rmVerIP.md`)](win/rmVerIP.md)
 
 ## Estructura del Repositorio
 No hay una estructura de carpetas definida inicialmente, pero los scripts se identifican mediante prefijos en sus nombres:

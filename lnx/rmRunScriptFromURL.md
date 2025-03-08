@@ -1,10 +1,10 @@
 <!--  
-# Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | lnx_runScriptFromURL.md | v250308-1624
+# Ricardo Monla (https://github.com/rmonla/rmCMDs)
+# rmRunScriptFromURL.md | v250308-1639
 -->
-# lnx_runScriptFromURL
+# rmRunScriptFromURL
 
-[![lnx_runScriptFromURL | v250308-1620](https://img.shields.io/badge/lnx_runScriptFromURL%20%7C%20v250308%201620-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
+[![rmRunScriptFromURL | v250308-1639](https://img.shields.io/badge/rmRunScriptFromURL%20%7C%20v250308%201639-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Descripción
 Este comando permite ejecutar un script desde una URL en sistemas Linux.

@@ -1,10 +1,10 @@
 <!--  
-# Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | lnx_removePackage.md | v250308-1624
+# Ricardo Monla (https://github.com/rmonla/rmCMDs)
+# lnx | rmRemovePackage.md | v250308-1636
 -->
-# lnx_removePackage
+# rmRemovePackage
 
-[![lnx_removePackage | v250308-1620](https://img.shields.io/badge/lnx_removePackage%20%7C%20v250308%201620-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
+[![lnx_removePackage | v250308-1636](https://img.shields.io/badge/lnx_removePackage%20%7C%20v250308%201636-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Descripción
 Este comando elimina un paquete y sus residuos en sistemas Linux.
