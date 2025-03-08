@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | readme.md | v250308-1620
+# rmCMDs | readme.md | v250308-1624
 -->
 # rmCMDs
 
@@ -12,7 +12,6 @@ Este repositorio recopila comandos de Linux y Windows que uso periódicamente. T
 ## Índice de Comandos y Scripts
 Aquí se encuentran diversos comandos y scripts organizados por prefijo según su plataforma y lenguaje.
 
-### Índice de Ejemplos
 1. [Ejecutar script desde URL (`lnx_runScriptFromURL`)](./lnx_runScriptFromURL.md)
 2. [Eliminar paquete y residuos (`lnx_removePackage`)](./lnx_removePackage.md)
 3. [Ver configuración de red en Windows (`win_ver_ip`)](./win_ver_ip.md)
@@ -52,7 +51,3 @@ Este repositorio está categorizado bajo los siguientes temas:
 
 ## Licencia
 Este proyecto está licenciado bajo la **MIT License**. Puedes ver más detalles en el archivo `LICENSE`.
-
-## Archivo `.gitignore`
-Se ha incluido un archivo `.gitignore` básico para excluir archivos innecesarios, como archivos temporales o de configuración local.
-```

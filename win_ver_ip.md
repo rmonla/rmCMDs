@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | win_ver_ip.md | v250308-1620
+# rmCMDs | win_ver_ip.md | v250308-1624
 -->
 # win_ver_ip
 
@@ -17,4 +17,4 @@ ipconfig
 ### Sinopsis
 Muestra la configuración de red actual en Windows, incluyendo la dirección IP, máscara de subred y puerta de enlace predeterminada.
 
-[🔼 Volver al índice](../README.md#índice-de-ejemplos)
+[🔼 Volver al índice](../README.md)

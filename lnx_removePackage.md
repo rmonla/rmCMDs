@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | lnx_removePackage.md | v250308-1620
+# rmCMDs | lnx_removePackage.md | v250308-1624
 -->
 # lnx_removePackage
 
@@ -57,4 +57,4 @@ echo "Limpieza completa."'
 - Elimina el paquete, sus archivos de configuración y directorios residuales en `~/.config`, `~/.cache` y `~/.local/share`.
 - Es útil para garantizar que no queden rastros del paquete en el sistema.
 
-[🔼 Volver al índice](../README.md#índice-de-ejemplos)
+[🔼 Volver al índice](../README.md)

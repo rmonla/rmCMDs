@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | php_conexion_db.md | v250308-1620
+# rmCMDs | php_conexion_db.md | v250308-1624
 -->
 # php_conexion_db
 
@@ -31,4 +31,4 @@ echo "Conexión exitosa";
 ### Sinopsis
 Ejemplo básico de conexión a una base de datos MySQL utilizando PHP.
 
-[🔼 Volver al índice](../README.md#índice-de-ejemplos)
+[🔼 Volver al índice](../README.md)

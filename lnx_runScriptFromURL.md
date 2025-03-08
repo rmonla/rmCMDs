@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | lnx_runScriptFromURL.md | v250308-1620
+# rmCMDs | lnx_runScriptFromURL.md | v250308-1624
 -->
 # lnx_runScriptFromURL
 
@@ -47,4 +47,4 @@ bash -c 'read -p "Ingrese la URL del script a ejecutar: " cmdURL && \
 - El script se descarga en un archivo temporal creado con `mktemp`, lo que garantiza que no se sobrescriban archivos existentes.
 - El archivo temporal se elimina automáticamente después de la ejecución, lo que mejora la seguridad y evita dejar rastros en el sistema.
 
-[🔼 Volver al índice](../README.md#índice-de-ejemplos)
+[🔼 Volver al índice](../README.md#)
