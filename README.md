@@ -1,10 +1,10 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla)
-# rmCMDs | readme.md | v250308-1357
+# rmCMDs | readme.md | v250308-1553
 -->
 # rmCMDs
 
-[![rmCMDs | readme.md | v250308-1357](https://img.shields.io/badge/rmCMDs%20%7C%20readme.md%20-v250308%201357-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
+[![rmCMDs | readme.md | v250308-1553](https://img.shields.io/badge/rmCMDs%20%7C%20readme.md%20-v250308%201553-blue?logo=github&logoColor=white)](https://github.com/rmonla) [![Autor: Lic. Ricardo MONLA](https://img.shields.io/badge/Autor-Lic.%20Ricardo%20MONLA-orange?logo=mail.ru&logoColor=white)](mailto:rmonla@frlr.utn.edu.ar)
 
 ## Descripción
 Este repositorio recopila comandos de Linux y Windows que uso periódicamente. También busca ser un recurso útil para programadores, administradores de IT y público en general.
@@ -13,19 +13,44 @@ Este repositorio recopila comandos de Linux y Windows que uso periódicamente. T
 Aquí se encuentran diversos comandos y scripts organizados por prefijo según su plataforma y lenguaje.
 
 ### Índice de Ejemplos
-- [1. `lnx_listar_archivos`](#1-lnx_listar_archivos)
+- [1. `lnx_runScriptFromURL`](#1-lnx_runscriptfromurl)
 - [2. `win_ver_ip`](#2-win_ver_ip)
 - [3. `php_conexion_db`](#3-php_conexion_db)
 
 ### Ejemplos Iniciales
 
-#### 1. `lnx_listar_archivos`
+#### 1. `lnx_runScriptFromURL`
 - **Código**:
   ```bash
-  ls -la
+  bash -c 'read -p "Ingrese la URL del script a ejecutar: " cmdURL && \
+  { script_file=$(mktemp) && curl -fsSL "$cmdURL" -o "$script_file" && sh "$script_file" && rm -f "$script_file"; } \
+  || { echo "Error: Falló la descarga o ejecución del script"; exit 1; }'
   ```
-- **Sinopsis**: Lista todos los archivos y directorios en el directorio actual, incluyendo archivos ocultos, con detalles de permisos y propietarios.
+- **Sinopsis**: Solicita al usuario una URL de un script, lo descarga en un archivo temporal, lo ejecuta y luego elimina el archivo temporal. Si falla la descarga o la ejecución, muestra un mensaje de error y detiene el proceso.
+- **Uso**: Ideal para ejecutar scripts remotos de manera temporal y segura, sin dejar rastros en el sistema.
+- **Dependencias**: Requiere `curl` instalado en el sistema.
+- **Manejo de errores**: Si falla la descarga, la ejecución o la eliminación del archivo temporal, se muestra un mensaje de error y se detiene la ejecución con `exit 1`.
+- **Ejemplo**:
+  ```bash
+  bash -c 'read -p "Ingrese la URL del script a ejecutar: " cmdURL && \
+  { script_file=$(mktemp) && curl -fsSL "$cmdURL" -o "$script_file" && sh "$script_file" && rm -f "$script_file"; } \
+  || { echo "Error: Falló la descarga o ejecución del script"; exit 1; }'
+  ```
+  - **Entrada del usuario**:
+    ```
+    Ingrese la URL del script a ejecutar: https://ejemplo.com/ruta/al/script.sh
+    ```
+  - **Salida esperada**:
+    - Si todo funciona correctamente, el script se ejecuta y no se muestra ningún error.
+    - Si falla, se muestra: `Error: Falló la descarga o ejecución del script`.
+
+- **Notas**:
+  - El script se descarga en un archivo temporal creado con `mktemp`, lo que garantiza que no se sobrescriban archivos existentes.
+  - El archivo temporal se elimina automáticamente después de la ejecución, lo que mejora la seguridad y evita dejar rastros en el sistema.
+
 - [🔼 Volver al índice](#índice-de-ejemplos)
+
+---
 
 #### 2. `win_ver_ip`
 - **Código**:
@@ -94,4 +119,3 @@ Este proyecto está licenciado bajo la **MIT License**. Puedes ver más detalles
 
 ## Archivo `.gitignore`
 Se ha incluido un archivo `.gitignore` básico para excluir archivos innecesarios, como archivos temporales o de configuración local.
-
