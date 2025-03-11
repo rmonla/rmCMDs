@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script para cambiar el nombre del host y reiniciar el sistema
 # Ricardo Monla (https://github.com/rmonla)
-# rmCambiaNomHost.sh - v250310-1817
+# rm-CambiaNomHost.sh - v250325-1745
 
 
 clear
