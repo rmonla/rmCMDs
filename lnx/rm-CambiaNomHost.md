@@ -2,7 +2,7 @@
 # Ricardo Monla (https://github.com/rmonla/rmCMDs)
 # rm-CambiaNomHost.md | v250311-2104
 -->
-### rmCambiaNomHost.sh
+### rm-CambiaNomHost.sh
 ```shell
 rmCMD=rm-CambiaNomHost.sh && \
 sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
