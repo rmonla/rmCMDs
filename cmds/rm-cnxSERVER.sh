@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250312-1112
+# rm-cnxSERVER.sh - v250312-1117
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -12,9 +12,9 @@ clear
 
 # Array de servidores con ID, HOST, PORT (opcional) y USR (opcional)
 servers=(
-    "ID=ns8-1 HOST=172.0.25.1 PORT=7022"
+    "ID=ns8-1 HOST=172.25.0.1 PORT=7022"
     "ID=ns8-2 HOST=ns8.frlr.utn.edu.ar PORT=7022"
-    "ID=utnDNS HOST=190.114.205.3"
+    "ID=utnDNS HOST=190.114.205.2"
     "ID=utnWWW HOST=www.frlr.utn.edu.ar"
 )
 
