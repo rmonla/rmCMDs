@@ -1,10 +1,10 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-ConnNS8.sh - v250312-0928
+# rm-connNS8.sh - v250312-0934
 
-# rmCMD=rm-ConnNS8.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+# rmCMD=rm-connNS8.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
-rmCMD="rm-ConnNS8.sh"
+rmCMD="rm-connNS8.sh"
 
 cat << 'SHELL' > "${rmCMD}"
 #!/bin/bash
