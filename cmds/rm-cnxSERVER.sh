@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250312-1212
+# rm-cnxSERVER.sh - v250312-1625
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -16,7 +16,9 @@ servers=(
     "ID=ns8-2 HOST=ns8.frlr.utn.edu.ar PORT=7022"
     "ID=utnDNS HOST=190.114.205.2"
     "ID=utnWWW HOST=www.frlr.utn.edu.ar"
-    "ID=utnTORII HOST=190.114.205.3")
+    "ID=utnTORII HOST=190.114.205.3"
+    "ID=utnKOHA HOST=10.0.10.130"
+    )
 
 # Valores predeterminados
 usuario_predeterminado="rmonla"
