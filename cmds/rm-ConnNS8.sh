@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-ConnNS8.sh - v250312-0925
+# rm-ConnNS8.sh - v250312-0928
 
 # rmCMD=rm-ConnNS8.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -25,7 +25,7 @@ read -p "Opción: " opcion
 # Validar la opción seleccionada
 if [[ $opcion -ge 0 && $opcion -lt ${#ips[@]} ]]; then
     echo "Conectando a ${ips[$opcion]}..."
-    ssh -p 22 usuario@${ips[$opcion]}  # Cambia 'usuario' por el nombre de usuario correcto
+    ssh -p 7022 ${ips[$opcion]}
 elif [[ $opcion -eq ${#ips[@]} ]]; then
     echo "Saliendo..."
     exit 0
