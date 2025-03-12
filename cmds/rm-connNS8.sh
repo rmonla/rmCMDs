@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-connNS8.sh - v250312-0958
+# rm-connNS8.sh - v250312-1026
 
 # rmCMD=rm-connNS8.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -10,12 +10,14 @@ cat << 'SHELL' > "${rmCMD}"
 #!/bin/bash
 clear
 
-# Array de IPs
-ips=("172.25.0.1" "190.114.205.17")
+# Array de servidores con IP y PORT
+servers=(
+    "IP=172.25.0.1 PORT=7022"
+    "IP=190.114.205.3 PORT=22"
+)
 
 # Valores predeterminados
 usuario="rmonla"
-puerto="7022"
 
 # Colores
 verde="\e[32m"
@@ -26,11 +28,14 @@ reset="\e[0m"
 # Función para mostrar el menú
 mostrar_menu() {
     echo -e "${verde}====== MENÚ SSH ======${reset}"
-    for i in "${!ips[@]}"; do
-        echo -e "$i) Conectar a ${ips[$i]}"
+    for i in "${!servers[@]}"; do
+        # Extraer datos del servidor
+        IFS=' ' read -r -a server_data <<< "${servers[$i]}"
+        ip="${server_data[0]#IP=}"
+        port="${server_data[1]#PORT=}"
+        echo -e "$i) Conectar a ${verde}$ip${reset} (Puerto: $port)"
     done
     echo -e "u) Cambiar usuario (actual: ${amarillo}$usuario${reset})"
-    echo -e "p) Cambiar puerto  (actual: ${amarillo}$puerto${reset})"
     echo -e "q) Salir"
     echo -e "========================="
 }
@@ -47,9 +52,14 @@ while true; do
 
     case $opcion in
         [0-9])
-            if [[ $opcion -ge 0 && $opcion -lt ${#ips[@]} ]]; then
-                echo -e "${verde}Conectando a ${ips[$opcion]} como $usuario en el puerto $puerto...${reset}"
-                ssh -p "$puerto" "$usuario@${ips[$opcion]}"
+            if [[ $opcion -ge 0 && $opcion -lt ${#servers[@]} ]]; then
+                # Extraer datos del servidor seleccionado
+                IFS=' ' read -r -a server_data <<< "${servers[$opcion]}"
+                ip="${server_data[0]#IP=}"
+                port="${server_data[1]#PORT=}"
+
+                echo -e "${verde}Conectando a $ip como $usuario en el puerto $port...${reset}"
+                ssh -p "$port" "$usuario@$ip"
                 echo -e "${amarillo}Sesión finalizada. Volviendo al menú...${reset}"
             else
                 echo -e "${rojo}Opción no válida. Inténtalo de nuevo.${reset}"
@@ -59,15 +69,6 @@ while true; do
             read -p "Ingrese el nuevo usuario [$usuario]: " nuevo_usuario
             [[ -n "$nuevo_usuario" ]] && usuario="$nuevo_usuario"
             echo -e "${verde}Usuario cambiado a: $usuario${reset}"
-            ;;
-        [pP])
-            read -p "Ingrese el nuevo puerto [$puerto]: " nuevo_puerto
-            if [[ "$nuevo_puerto" =~ ^[0-9]+$ ]]; then
-                puerto="$nuevo_puerto"
-                echo -e "${verde}Puerto cambiado a: $puerto${reset}"
-            else
-                echo -e "${rojo}Puerto no válido. Usando el anterior: $puerto${reset}"
-            fi
             ;;
         [qQ])
             echo -e "${amarillo}Saliendo...${reset}"
