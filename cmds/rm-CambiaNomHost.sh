@@ -1,6 +1,8 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-CambiaNomHost.sh - v250311-2121
+# rm-CambiaNomHost.sh - v250312-1636
+# rmCMD=rm-CambiaNomHost.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+
 rmCMD="rm-CambiaNomHost.sh"
 
 cat << 'SHELL' > "${rmCMD}"
