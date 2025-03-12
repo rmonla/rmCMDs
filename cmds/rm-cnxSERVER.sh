@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250312-1053
+# rm-cnxSERVER.sh - v250312-1112
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -10,16 +10,17 @@ cat << 'SHELL' > "${rmCMD}"
 #!/bin/bash
 clear
 
-# Array de servidores con ID, HOST, PORT y USR
+# Array de servidores con ID, HOST, PORT (opcional) y USR (opcional)
 servers=(
-    "ID=ns8-1 HOST=172.0.25.1 PORT=7022 USR=*"
-    "ID=ns8-2 HOST=190.114.205.3 PORT=* USR=*"
-    "ID=utnWWW HOST=www.frlr.utn.edu.ar PORT=* USR=*"
+    "ID=ns8-1 HOST=172.0.25.1 PORT=7022"
+    "ID=ns8-2 HOST=ns8.frlr.utn.edu.ar PORT=7022"
+    "ID=utnDNS HOST=190.114.205.3"
+    "ID=utnWWW HOST=www.frlr.utn.edu.ar"
 )
 
 # Valores predeterminados
 usuario_predeterminado="rmonla"
-puerto_predeterminado="7022"
+puerto_predeterminado="22"
 
 # Colores
 verde="\e[32m"
@@ -39,7 +40,10 @@ mostrar_menu() {
         usr="${server_data[3]#USR=}"
 
         # Mostrar información del servidor
-        echo -e "$i) Conectar a ${verde}$id${reset} (Host: $host, Puerto: ${port//\*/$puerto_predeterminado}, Usuario: ${usr//\*/$usuario_predeterminado})"
+        echo -n -e "$i) Conectar a ${verde}$id${reset} (Host: $host"
+        [[ -n "$port" ]] && echo -n -e ", Puerto: $port"
+        [[ -n "$usr" ]] && echo -n -e ", Usuario: $usr"
+        echo -e ")"
     done
     echo -e "u) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
     echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
@@ -67,9 +71,9 @@ while true; do
                 port="${server_data[2]#PORT=}"
                 usr="${server_data[3]#USR=}"
 
-                # Usar valores predeterminados si PORT=* o USR=*
-                [[ "$port" == "*" ]] && port="$puerto_predeterminado"
-                [[ "$usr" == "*" ]] && usr="$usuario_predeterminado"
+                # Usar valores predeterminados si PORT o USR no están definidos
+                [[ -z "$port" ]] && port="$puerto_predeterminado"
+                [[ -z "$usr" ]] && usr="$usuario_predeterminado"
 
                 echo -e "${verde}Conectando a $id ($host) como $usr en el puerto $port...${reset}"
                 ssh -p "$port" "$usr@$host"
