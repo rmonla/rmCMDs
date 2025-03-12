@@ -1,11 +1,13 @@
 #!/bin/bash
-# Script para cambiar el nombre del host y reiniciar el sistema
 # Ricardo Monla (https://github.com/rmonla)
-# rm-CambiaNomHost.sh - v250325-1745
+# rm-CambiaNomHost.sh - v250311-2121
+rmCMD="rm-CambiaNomHost.sh"
 
+cat << 'SHELL' > "${rmCMD}"
+#!/bin/bash
+# Script para cambiar el nombre del host y reiniciar el sistema.
 
 clear
-
 # Mostrar el nombre del host actual
 H_ACTUAL=$(hostname)
 echo "Nombre del host actual: $H_ACTUAL"
@@ -22,3 +24,10 @@ fi
 
 # Cambiar el nombre del host en los archivos de configuración y reiniciar
 sudo sed -i "s/$H_ACTUAL/$H_NUEVO/g" /etc/hosts /etc/hostname && sudo reboot
+SHELL
+
+# Dar permisos de ejecución al script
+chmod +x "${rmCMD}"
+
+# Ejecutar el script
+./"${rmCMD}"
