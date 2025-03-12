@@ -1,6 +1,6 @@
 <!--  
 # Ricardo Monla (https://github.com/rmonla/rmCMDs)
-# rmCambiaNomHost.md | v250311-1821
+# rm-CambiaNomHost.md | v250311-2104
 -->
 ### rmCambiaNomHost.sh
 ```shell
