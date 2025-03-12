@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-connNS8.sh - v250312-0934
+# rm-connNS8.sh - v250312-0935
 
 # rmCMD=rm-connNS8.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
