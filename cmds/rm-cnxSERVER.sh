@@ -47,9 +47,9 @@ mostrar_menu() {
         echo -n -e "$i) Conectar a ${verde}$id${reset} (Host: $host"
         [[ -n "$port" ]] && echo -n -e ", Puerto: $port"
         [[ -n "$usr" ]] && echo -n -e ", Usuario: $usr"
-        echo -e ")\n"
+        echo -e ")"
     done
-    echo -e "u) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
+    echo -e "\nu) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
     echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
     echo -e "r) Ejecutar éste sacript desde el repositorio${reset})"
     echo -e "q) Salir"
