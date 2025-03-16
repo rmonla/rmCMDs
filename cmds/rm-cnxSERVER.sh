@@ -1,8 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-0854
-
-# rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+# rm-cnxSERVER.sh - v250316-1106
 
 rmCMD="rm-cnxSERVER.sh"
 
@@ -49,10 +47,11 @@ mostrar_menu() {
         echo -n -e "$i) Conectar a ${verde}$id${reset} (Host: $host"
         [[ -n "$port" ]] && echo -n -e ", Puerto: $port"
         [[ -n "$usr" ]] && echo -n -e ", Usuario: $usr"
-        echo -e ")"
+        echo -e ")\n"
     done
-    echo -e "\nu) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
+    echo -e "u) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
     echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
+    echo -e "r) Ejecutar éste sacript desde el repositorio${reset})"
     echo -e "q) Salir"
     echo -e "\n=========================\n"
 }
@@ -102,8 +101,13 @@ while true; do
                 echo -e "${rojo}Puerto no válido. Usando el anterior: $puerto_predeterminado${reset}"
             fi
             ;;
+        [rR])
+            echo -e "Conectando a ${verde}github.com/rmonla/rmCMDs${reset} y ejecutando ${verde}rm-cnxSERVER.sh...${reset}"
+            rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+            exit 0
+            ;;
         [qQ])
-            echo -e "${amarillo}Saliendo...${reset}"
+            echo -e "\n${amarillo}Saliendo...${reset}"
             exit 0
             ;;
         *)
