@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-0849
+# rm-cnxSERVER.sh - v250316-0854
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -36,7 +36,7 @@ reset="\e[0m"
 # Función para mostrar el menú
 mostrar_menu() {
     clear
-    echo -e "${verde}====== MENÚ SSH [$(hostname)] ======${reset}\n"
+    echo -e "${verde}====== MENÚ [$(hostname)] ======${reset}\n"
     for i in "${!servers[@]}"; do
         # Extraer datos del servidor
         IFS=' ' read -r -a server_data <<< "${servers[$i]}"
@@ -54,7 +54,7 @@ mostrar_menu() {
     echo -e "\nu) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
     echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
     echo -e "q) Salir"
-    echo -e "\n========================="
+    echo -e "\n=========================\n"
 }
 
 # Loop principal
@@ -65,7 +65,7 @@ while true; do
     read -p "Seleccione una opción [0]: " opcion
 
     # Si no se ingresa una opción, usar la opción predeterminada (0)
-    opcion="q"
+    opcion="${opcion:-0}"
 
     case $opcion in
         [0-9])
