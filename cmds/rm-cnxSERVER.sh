@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-0845
+# rm-cnxSERVER.sh - v250316-0849
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -36,7 +36,7 @@ reset="\e[0m"
 # Función para mostrar el menú
 mostrar_menu() {
     clear
-    echo -e "${verde}====== MENÚ SSH ======${reset}\n"
+    echo -e "${verde}====== MENÚ SSH [$(hostname)] ======${reset}\n"
     for i in "${!servers[@]}"; do
         # Extraer datos del servidor
         IFS=' ' read -r -a server_data <<< "${servers[$i]}"
