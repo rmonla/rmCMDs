@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-1109
+# rm-cnxSERVER.sh - v250316-1114
 
 rmCMD="rm-cnxSERVER.sh"
 
@@ -51,7 +51,7 @@ mostrar_menu() {
     done
     echo -e "\nu) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
     echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
-    echo -e "r) Ejecutar éste sacript desde el repositorio${reset})"
+    echo -e "r) Ejecutar éste sacript desde el repositorio${reset}"
     echo -e "q) Salir"
     echo -e "\n=========================\n"
 }
