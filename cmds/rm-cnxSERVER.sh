@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-1106
+# rm-cnxSERVER.sh - v250316-1109
 
 rmCMD="rm-cnxSERVER.sh"
 
