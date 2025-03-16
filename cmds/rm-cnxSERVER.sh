@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-0826
+# rm-cnxSERVER.sh - v250316-0842
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
@@ -15,7 +15,7 @@ servers=(
     "ID=ns8_vpn HOST=172.25.0.1 PORT=7022"
     "ID=ns8_utnlan HOST=10.0.10.8 PORT=7022"
     "ID=ns8_wan HOST=ns8.frlr.utn.edu.ar PORT=7022"
-    "ID=ns7_vpn HOST=172.23.0.1 PORT=22"
+    "ID=ns7_vpn HOST=172.23.0.1"
     "ID=utnDNS HOST=190.114.205.2"
     "ID=utnWWW HOST=www.frlr.utn.edu.ar"
     "ID=utnTORII HOST=190.114.205.3"
@@ -50,7 +50,7 @@ mostrar_menu() {
         [[ -n "$usr" ]] && echo -n -e ", Usuario: $usr"
         echo -e ")"
     done
-    echo -e "u) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
+    echo -e "\nu) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
     echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
     echo -e "q) Salir"
     echo -e "========================="
