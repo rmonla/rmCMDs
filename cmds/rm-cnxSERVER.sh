@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250316-1114
+# rm-cnxSERVER.sh - v250316-1138
 
 rmCMD="rm-cnxSERVER.sh"
 
@@ -10,15 +10,17 @@ clear
 
 # Array de servidores con ID, HOST, PORT (opcional) y USR (opcional)
 servers=(
-    "ID=ns8_vpn HOST=172.25.0.1 PORT=7022"
-    "ID=ns8_utnlan HOST=10.0.10.8 PORT=7022"
-    "ID=ns8_wan HOST=ns8.frlr.utn.edu.ar PORT=7022"
-    "ID=ns7_vpn HOST=172.23.0.1"
-    "ID=utnDNS HOST=190.114.205.2"
-    "ID=utnWWW HOST=www.frlr.utn.edu.ar"
-    "ID=utnTORII HOST=190.114.205.3"
-    "ID=utnKOHA HOST=10.0.10.130"
-    "ID=utnDOCs HOST=10.0.10.14"
+    "ID=srvNS8 HOST=172.25.0.1 PORT=7022"
+    "ID=srvNS8 HOST=10.0.10.8 PORT=7022"
+    "ID=srvNS8 HOST=ns8.frlr.utn.edu.ar PORT=7022"
+    "ID=srvNS7 HOST=172.23.0.1"
+    "ID=srvNS1 HOST=ns1.frlr.utn.edu.ar"
+    "ID=srvNS1 HOST=190.114.205.2"
+    "ID=srvSITIO HOST=www.frlr.utn.edu.ar"
+    "ID=srvSITIO HOST=190.114.205.20"
+    "ID=srvTORII HOST=190.114.205.3"
+    "ID=srvKOHA HOST=10.0.10.130"
+    "ID=srvDOCs HOST=10.0.10.14"
     )
 
 # Valores predeterminados
