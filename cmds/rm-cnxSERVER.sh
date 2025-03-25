@@ -19,6 +19,7 @@ servers=(
     "ID=srvNS1 HOST=190.114.205.2"
     "ID=srvSITIO HOST=www.frlr.utn.edu.ar"
     "ID=srvSITIO HOST=190.114.205.20"
+    "ID=srvDTIC HOST=10.0.10.4"
     "ID=srvTORII HOST=190.114.205.3"
     "ID=srvKOHA HOST=10.0.10.130"
     "ID=srvDOCs HOST=10.0.10.14"
