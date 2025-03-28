@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-actuDistro.sh - v250328-1137
+# rm-actuDistro.sh - v250328-1156
 
 rmCMD="rm-actuDistro.sh"
 
@@ -25,10 +25,12 @@ ejecutar_actualizacion() {
         echo -e "\nEjecutando $aptRUN..."
         sudo apt $aptRUN -y
     done
+    
+    echo -e "\nEl sistema fué actualizando."
 
     # Verificar si se requiere reinicio
     if [ -f /var/run/reboot-required ]; then
-        echo "El sistema requiere un reinicio."
+        echo "Se requiere reiniciar para que las actualizaciones sw apliquen."
     else
         echo "No se requiere reinicio."
     fi
