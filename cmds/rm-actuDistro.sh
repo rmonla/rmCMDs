@@ -20,7 +20,7 @@ mostrar_ayuda() {
 ejecutar_actualizacion() {
     clear
     echo -e "Actualizando el sistema...\n"
-    sudo echo ""
+    sudo echo "Iniciando..."
 
     for aptRUN in update full-upgrade autoremove autoclean; do
         echo -e "\nEjecutando $aptRUN..."
