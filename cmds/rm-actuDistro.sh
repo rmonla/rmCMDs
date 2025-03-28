@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-actuDistro.sh - v250328-1156
+# rm-actuDistro.sh - v250328-1202
 
 rmCMD="rm-actuDistro.sh"
 
@@ -19,7 +19,8 @@ mostrar_ayuda() {
 
 ejecutar_actualizacion() {
     clear
-    echo "Actualizando el sistema..."
+    echo -e "Actualizando el sistema...\n"
+    sudo echo ""
 
     for aptRUN in update full-upgrade autoremove autoclean; do
         echo -e "\nEjecutando $aptRUN..."
