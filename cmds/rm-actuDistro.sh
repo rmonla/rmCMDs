@@ -1,6 +1,8 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-actuDistro.sh - v250328-1202
+# rm-actuDistro.sh - v250328-1238
+
+# rmCMD=rm-actuDistro.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
 rmCMD="rm-actuDistro.sh"
 
@@ -13,7 +15,7 @@ mostrar_ayuda() {
     echo ""
     echo "Opciones:"
     echo "  -h        Mostrar esta ayuda"
-    echo "  -r        Ejecutando comando desde el repositorio"
+    echo "  -r        Ejecutar comando desde el repositorio"
     exit 0
 }
 
@@ -26,12 +28,12 @@ ejecutar_actualizacion() {
         echo -e "\nEjecutando $aptRUN..."
         sudo apt $aptRUN -y
     done
-    
-    echo -e "\nEl sistema fué actualizando."
+
+    echo -e "\nEl sistema fue actualizado."
 
     # Verificar si se requiere reinicio
     if [ -f /var/run/reboot-required ]; then
-        echo "Se requiere reiniciar para que las actualizaciones sw apliquen."
+        echo "Se requiere reiniciar para que las actualizaciones se apliquen."
     else
         echo "No se requiere reinicio."
     fi
@@ -45,7 +47,9 @@ while getopts ":hr" opcion; do
             ;;
         r)
             echo "Ejecutando comando desde el repositorio..."
-            rmCMD=rm-actuDistro.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+            rmCMD=rm-actuDistro.sh
+            sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+            exit 0
             ;;
         \?)
             echo "Opción inválida: -$OPTARG" >&2
