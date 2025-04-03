@@ -1,13 +1,13 @@
 #!/bin/bash
+
+rmCMD="rm-cnxSERVER.sh"
+cat << 'SHELL' > "${rmCMD}"
+#!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250403-1650
+# rm-cnxSERVER.sh - v250403-1654
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
-rmCMD="rm-cnxSERVER.sh"
-
-cat << 'SHELL' > "${rmCMD}"
-#!/bin/bash
 clear
 
 # Array de servidores con ID, HOST, PORT (opcional) y USR (opcional)
