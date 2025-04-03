@@ -20,7 +20,7 @@ servers=(
     "ID=srvNS1 HOST=ns1.frlr.utn.edu.ar"
     "ID=srvSITIO HOST=www.frlr.utn.edu.ar"
     "ID=srvSITIO0 HOST=s0.frlr.utn.edu.ar"
-    "ID=srvDTIC=tic.frlr.utn.edu.ar"
+    "ID=srvDTIC HOST=tic.frlr.utn.edu.ar"
     "ID=srvKOHA HOST=koha.frlr.utn.edu.ar"
     "ID=srvDOCs HOST=docs.frlr.utn.edu.ar"
     "ID=srvTORII HOST=dns.frlr.utn.edu.ar"
