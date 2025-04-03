@@ -18,15 +18,14 @@ servers=(
     "ID=srvNS7 HOST=10.0.10.7"
     "ID=srvNS7 HOST=172.25.0.1"
     "ID=srvNS1 HOST=ns1.frlr.utn.edu.ar"
-    "ID=srvNS1 HOST=190.114.205.2"
-    "ID=srvDTIC HOST=10.0.10.4"
     "ID=srvSITIO HOST=www.frlr.utn.edu.ar"
-    "ID=srvSITIO0 HOST=10.0.10.119"
-    "ID=srvKOHA HOST=10.0.10.130"
-    "ID=srvDOCs HOST=10.0.10.14"
-    "ID=srvTORII HOST=190.114.205.3"
-    "ID=srvPMOX1 HOST=10.0.10.9"
-    "ID=srvPMOX2 HOST=10.0.10.200"
+    "ID=srvSITIO0 HOST=s0.frlr.utn.edu.ar"
+    "ID=srvDTIC=tic.frlr.utn.edu.ar"
+    "ID=srvKOHA HOST=koha.frlr.utn.edu.ar"
+    "ID=srvDOCs HOST=docs.frlr.utn.edu.ar"
+    "ID=srvTORII HOST=dns.frlr.utn.edu.ar"
+    "ID=srvPMOX1 HOST=pmox1.frlr.utn.edu.ar"
+    "ID=srvPMOX2 HOST=pmox2.frlr.utn.edu.ar"
     )
 
 # Valores predeterminados
