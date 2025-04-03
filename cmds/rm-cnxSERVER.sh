@@ -1,6 +1,6 @@
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250325-1721
+# rm-cnxSERVER.sh - v250403-1650
 
 # rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
 
