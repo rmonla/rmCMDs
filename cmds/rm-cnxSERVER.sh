@@ -23,6 +23,7 @@ servers=(
     "ID=srvSITIO HOST=www.frlr.utn.edu.ar"
     "ID=srvSITIO0 HOST=s0.frlr.utn.edu.ar"
     "ID=srvKOHA HOST=koha.frlr.utn.edu.ar"
+    "ID=srvKOHA HOST=10.0.10.130"
     "ID=srvDOCs HOST=docs.frlr.utn.edu.ar"
     "ID=srvTORII HOST=dns.frlr.utn.edu.ar"
     "ID=srvPMOX1 HOST=pmox1.frlr.utn.edu.ar"
