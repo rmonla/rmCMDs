@@ -27,6 +27,7 @@ servers=(
     "ID=srvDOCs HOST=docs.frlr.utn.edu.ar"
     "ID=srvDOCs HOST=10.0.10.14"
     "ID=srvTORII HOST=dns.frlr.utn.edu.ar"
+    "ID=srvTORII HOST=190.114.205.3"
     "ID=srvPMOX1 HOST=pmox1.frlr.utn.edu.ar"
     "ID=srvPMOX2 HOST=pmox2.frlr.utn.edu.ar"
     )
