@@ -4,13 +4,18 @@ rmCMD="rm-cnxSERVER.sh"
 cat << 'SHELL' > "${rmCMD}"
 #!/bin/bash
 # Ricardo Monla (https://github.com/rmonla)
-# rm-cnxSERVER.sh - v250403-1654
+# rm-cnxSERVER.sh - v250425-2300
 
-# rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+# Ejecutar desde el repositorio si se pasa -r como argumento
+if [[ "$1" == "-r" ]]; then
+    echo -e "\n\e[32m>> Ejecutando script remoto desde GitHub...\e[0m"
+    rmCMD=rm-cnxSERVER.sh && exec bash -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
+    exit 0
+fi
 
 clear
 
-# Array de servidores con ID, HOST, PORT (opcional) y USR (opcional)
+# Array de servidores
 servers=(
     "ID=srvNS8 HOST=172.26.0.1 PORT=7022"
     "ID=srvNS8 HOST=10.0.10.8 PORT=7022"
@@ -30,102 +35,108 @@ servers=(
     "ID=srvTORII HOST=190.114.205.3"
     "ID=srvPMOX1 HOST=pmox1.frlr.utn.edu.ar"
     "ID=srvPMOX2 HOST=pmox2.frlr.utn.edu.ar"
-    )
+)
 
-# Valores predeterminados
 usuario_predeterminado="rmonla"
 puerto_predeterminado="22"
 
-# Colores
 verde="\e[32m"
 rojo="\e[31m"
 amarillo="\e[33m"
 reset="\e[0m"
 
-# Función para mostrar el menú
-mostrar_menu() {
+# Obtener lista única de IDs
+get_grupos_unicos() {
+    local ids=()
+    for entry in "${servers[@]}"; do
+        [[ "$entry" =~ ID=([^[:space:]]+) ]] && ids+=("${BASH_REMATCH[1]}")
+    done
+    # Quitar duplicados
+    echo "${ids[@]}" | tr ' ' '\n' | sort -u
+}
+
+mostrar_menu_grupos() {
     clear
-    echo -e "${verde}====== MENÚ [$(hostname)] ======${reset}\n"
+    echo -e "${verde}====== GRUPOS DISPONIBLES [$(hostname)] ======${reset}\n"
+    grupos=($(get_grupos_unicos))
+    for i in "${!grupos[@]}"; do
+        echo -e "$i) ${amarillo}${grupos[$i]}${reset}"
+    done
+    echo -e "\nu) Cambiar usuario (actual: ${amarillo}$usuario_predeterminado${reset})"
+    echo -e "p) Cambiar puerto (actual: ${amarillo}$puerto_predeterminado${reset})"
+    echo -e "r) Ejecutar desde el repositorio remoto"
+    echo -e "q) Salir"
+    echo -e "\n=============================================\n"
+}
+
+mostrar_submenu_grupo() {
+    grupo="$1"
+    clear
+    echo -e "${verde}>> Servidores en grupo '$grupo':${reset}\n"
+
+    opciones=()
     for i in "${!servers[@]}"; do
-        # Extraer datos del servidor
+        [[ "${servers[$i]}" =~ ID=$grupo ]] && opciones+=("$i")
+    done
+
+    for idx in "${!opciones[@]}"; do
+        i="${opciones[$idx]}"
         IFS=' ' read -r -a server_data <<< "${servers[$i]}"
-        id="${server_data[0]#ID=}"
         host="${server_data[1]#HOST=}"
         port="${server_data[2]#PORT=}"
         usr="${server_data[3]#USR=}"
 
-        # Mostrar información del servidor
-        echo -n -e "$i) Conectar a ${verde}$id${reset} (Host: $host"
+        echo -n -e "$idx) Host: ${verde}$host${reset}"
         [[ -n "$port" ]] && echo -n -e ", Puerto: $port"
         [[ -n "$usr" ]] && echo -n -e ", Usuario: $usr"
-        echo -e ")"
+        echo
     done
-    echo -e "\nu) Cambiar usuario predeterminado (actual: ${amarillo}$usuario_predeterminado${reset})"
-    echo -e "p) Cambiar puerto predeterminado (actual: ${amarillo}$puerto_predeterminado${reset})"
-    echo -e "r) Ejecutar éste sacript desde el repositorio${reset}"
-    echo -e "q) Salir"
-    echo -e "\n=========================\n"
+    echo -e "\nb) Volver al menú principal\n"
+
+    read -p "Seleccione un servidor [0]: " subopcion
+    subopcion="${subopcion:-0}"
+
+    if [[ "$subopcion" == "b" ]]; then return; fi
+    if [[ "$subopcion" =~ ^[0-9]+$ && "$subopcion" -ge 0 && "$subopcion" -lt "${#opciones[@]}" ]]; then
+        idx="${opciones[$subopcion]}"
+        IFS=' ' read -r -a server_data <<< "${servers[$idx]}"
+        id="${server_data[0]#ID=}"
+        host="${server_data[1]#HOST=}"
+        port="${server_data[2]#PORT=}"
+        usr="${server_data[3]#USR=}"
+        [[ -z "$port" ]] && port="$puerto_predeterminado"
+        [[ -z "$usr" ]] && usr="$usuario_predeterminado"
+
+        echo -e "${verde}Conectando a $id ($host) como $usr en el puerto $port...${reset}"
+        ssh -p "$port" "$usr@$host"
+        echo -e "${amarillo}Sesión finalizada. Volviendo al menú...${reset}"
+    else
+        echo -e "${rojo}Opción inválida.${reset}"
+    fi
 }
 
-# Loop principal
+# Bucle principal
 while true; do
-    mostrar_menu
+    mostrar_menu_grupos
+    read -p "Seleccione un grupo: " opcion
 
-    # Leer la opción del usuario
-    read -p "Seleccione una opción [0]: " opcion
-
-    # Si no se ingresa una opción, usar la opción predeterminada (0)
-    opcion="${opcion:-0}"
-
-    case $opcion in
+    case "$opcion" in
+        [qQ]) echo -e "${amarillo}Saliendo...${reset}"; exit 0 ;;
+        [rR]) echo -e "${verde}Ejecutando remoto...${reset}"; rmCMD=rm-cnxSERVER.sh && exec bash -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})" ;;
+        [uU]) read -p "Nuevo usuario [$usuario_predeterminado]: " nuevo; [[ -n "$nuevo" ]] && usuario_predeterminado="$nuevo" ;;
+        [pP]) read -p "Nuevo puerto [$puerto_predeterminado]: " nuevo; [[ "$nuevo" =~ ^[0-9]+$ ]] && puerto_predeterminado="$nuevo" ;;
         ''|*[0-9]*)
-            if [[ $opcion -ge 0 && $opcion -lt ${#servers[@]} ]]; then
-                # Extraer datos del servidor seleccionado
-                IFS=' ' read -r -a server_data <<< "${servers[$opcion]}"
-                id="${server_data[0]#ID=}"
-                host="${server_data[1]#HOST=}"
-                port="${server_data[2]#PORT=}"
-                usr="${server_data[3]#USR=}"
-
-                # Usar valores predeterminados si PORT o USR no están definidos
-                [[ -z "$port" ]] && port="$puerto_predeterminado"
-                [[ -z "$usr" ]] && usr="$usuario_predeterminado"
-
-                echo -e "${verde}Conectando a $id ($host) como $usr en el puerto $port...${reset}"
-                ssh -p "$port" "$usr@$host"
-                echo -e "${amarillo}Sesión finalizada. Volviendo al menú...${reset}"
+            grupos=($(get_grupos_unicos))
+            if [[ "$opcion" -ge 0 && "$opcion" -lt "${#grupos[@]}" ]]; then
+                mostrar_submenu_grupo "${grupos[$opcion]}"
             else
-                echo -e "${rojo}Opción no válida. Inténtalo de nuevo.${reset}"
+                echo -e "${rojo}Grupo inválido.${reset}"
             fi
             ;;
-        [uU])
-            read -p "Ingrese el nuevo usuario predeterminado [$usuario_predeterminado]: " nuevo_usuario
-            [[ -n "$nuevo_usuario" ]] && usuario_predeterminado="$nuevo_usuario"
-            echo -e "${verde}Usuario predeterminado cambiado a: $usuario_predeterminado${reset}"
-            ;;
-        [pP])
-            read -p "Ingrese el nuevo puerto predeterminado [$puerto_predeterminado]: " nuevo_puerto
-            if [[ "$nuevo_puerto" =~ ^[0-9]+$ ]]; then
-                puerto_predeterminado="$nuevo_puerto"
-                echo -e "${verde}Puerto predeterminado cambiado a: $puerto_predeterminado${reset}"
-            else
-                echo -e "${rojo}Puerto no válido. Usando el anterior: $puerto_predeterminado${reset}"
-            fi
-            ;;
-        [rR])
-            echo -e "Conectando a ${verde}github.com/rmonla/rmCMDs${reset} y ejecutando ${verde}rm-cnxSERVER.sh...${reset}"
-            rmCMD=rm-cnxSERVER.sh && sh -c "$(curl -fsSL https://github.com/rmonla/rmCMDs/raw/refs/heads/main/cmds/${rmCMD})"
-            exit 0
-            ;;
-        [qQ])
-            echo -e "\n${amarillo}Saliendo...${reset}"
-            exit 0
-            ;;
-        *)
-            echo -e "${rojo}Opción no válida. Inténtalo de nuevo.${reset}"
-            ;;
+        *) echo -e "${rojo}Opción inválida.${reset}" ;;
     esac
 done
+
 
 SHELL
 
