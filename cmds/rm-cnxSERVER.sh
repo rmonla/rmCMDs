@@ -17,7 +17,7 @@ clear
 
 # Array de servidores
 servers=(
-    "ID=srvNS8 HOST=172.26.0.1 PORT=7022"
+    "ID=srvNS8 HOST=172.27.0.1 PORT=7022"
     "ID=srvNS8 HOST=10.0.10.8 PORT=7022"
     "ID=srvNS8 HOST=ns8.frlr.utn.edu.ar PORT=7022"
     "ID=srvNS7 HOST=10.0.10.7"
