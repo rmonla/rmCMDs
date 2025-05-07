@@ -37,6 +37,8 @@ servers=(
     "ID=srvTELEs HOST=tele.frlr.utn.edu.ar"
     "ID=srvPMOX1 HOST=pmox1.frlr.utn.edu.ar"
     "ID=srvPMOX2 HOST=pmox2.frlr.utn.edu.ar"
+    "ID=srvXEN01 HOST=10.0.10.23"
+    "ID=srvXEN01 HOST=10.0.10.24"
 )
 
 usuario_predeterminado="rmonla"
