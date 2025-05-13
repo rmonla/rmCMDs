@@ -33,12 +33,12 @@ servers=(
     "ID=srvDOCs HOST=10.0.10.14"
     "ID=srvTORII HOST=dns.frlr.utn.edu.ar"
     "ID=srvTORII HOST=190.114.205.3"
-    "ID=srvTELEs HOST=10.0.10.6"
     "ID=srvTELEs HOST=tele.frlr.utn.edu.ar"
+    "ID=srvTELEs HOST=10.0.10.6"
     "ID=srvPMOX1 HOST=pmox1.frlr.utn.edu.ar"
     "ID=srvPMOX2 HOST=pmox2.frlr.utn.edu.ar"
     "ID=srvXEN01 HOST=10.0.10.23"
-    "ID=srvXEN01 HOST=10.0.10.24"
+    "ID=srvXEN02 HOST=10.0.10.24"
 )
 
 usuario_predeterminado="rmonla"
