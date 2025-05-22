@@ -32,6 +32,7 @@ servers=(
     "ID=srvKOHA HOST=10.0.10.130"
     "ID=srvDOCs HOST=docs.frlr.utn.edu.ar"
     "ID=srvDOCs HOST=10.0.10.14"
+    "ID=srvTORII HOST=10.0.10.3"
     "ID=srvTORII HOST=dns.frlr.utn.edu.ar"
     "ID=srvTORII HOST=190.114.205.2"
     "ID=srvTELEs HOST=tele.frlr.utn.edu.ar"
